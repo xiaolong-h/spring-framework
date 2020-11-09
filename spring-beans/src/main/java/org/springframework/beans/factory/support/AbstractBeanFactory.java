@@ -339,6 +339,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 					Object prototypeInstance = null;
 					try {
 						beforePrototypeCreation(beanName);
+						//创建实例
 						prototypeInstance = createBean(beanName, mbd, args);
 					}
 					finally {
