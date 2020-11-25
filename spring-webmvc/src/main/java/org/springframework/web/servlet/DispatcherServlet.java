@@ -1054,6 +1054,7 @@ public class DispatcherServlet extends FrameworkServlet {
 				// making them available for @ExceptionHandler methods and other scenarios.
 				dispatchException = new NestedServletException("Handler dispatch failed", err);
 			}
+			//解析ModelAndViev
 			processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);
 		}
 		catch (Exception ex) {
@@ -1115,7 +1116,10 @@ public class DispatcherServlet extends FrameworkServlet {
 
 		// Did the handler return a view to render?
 		if (mv != null && !mv.wasCleared()) {
+
+			//go go go
 			render(mv, request, response);
+
 			if (errorView) {
 				WebUtils.clearErrorRequestAttributes(request);
 			}
@@ -1370,6 +1374,7 @@ public class DispatcherServlet extends FrameworkServlet {
 			if (mv.getStatus() != null) {
 				response.setStatus(mv.getStatus().value());
 			}
+			// go
 			view.render(mv.getModelInternal(), request, response);
 		}
 		catch (Exception ex) {
